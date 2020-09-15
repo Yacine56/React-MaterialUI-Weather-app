@@ -35,7 +35,8 @@ export const useStyle = makeStyles((theme) => ({
     marginTop: "3em",
   },
   text: {
-    
+    height:"10em",
+    backgroundColor:"white"
   },
   icon:{
     height:"15em",
@@ -55,7 +56,7 @@ export const useStyle = makeStyles((theme) => ({
     
       backgroundColor:"white",
     [theme.breakpoints.down("sm")]:{
-      height:"50em",
+      height:"60em",
      }
   }
 }));

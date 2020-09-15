@@ -19,11 +19,13 @@ const Main = () => {
   const [weather,setWeather]=useState("")
   const [temperature,setTemperature]=useState("")
   const [weatherIcon,setWeatherIcon]=useState("")
-
+  const [state,setStates]=useState("")
+  const [country,setCountry]=useState("")
   const [timeImageUrl, setTiemUrl]=useState(null)
   const [loading,setLoading]=useState(false)
   const [loaded ,setLoaded]=useState(false)
-  
+  const [valid ,setValid]=useState(false)
+  const [textHelper,setHelper]=useState("")
   let cityData,weatherData
 
   const submitHandler=async ()=>{
@@ -35,6 +37,8 @@ const Main = () => {
       cityData=response.cityData.data[0]
       weatherData=response.weatherData.data[0]
       setCityName(cityData.EnglishName)
+      setStates(cityData.AdministrativeArea.EnglishName)
+      setCountry(cityData.Country.EnglishName)
       setWeather(weatherData.WeatherText)
       setTemperature(weatherData.Temperature.Metric.Value)
       setWeatherIcon(weatherData.WeatherIcon)
@@ -52,6 +56,17 @@ const Main = () => {
 
   const onChange = (event) => {
     setCity(event.target.value);
+    let v
+   
+    v=/^[a-zA-Z\s]*$/.test(event.target.value) && !(event.target.value.length <= 1)
+    console.log(v)
+    
+    setValid(v)
+    if(v===false){
+      setHelper("enter a valid city Name")
+    }else{
+      setHelper("")
+    }
   };
 
 let weatherDetails= (
@@ -63,8 +78,14 @@ let weatherDetails= (
    {weatherIcon &&  <img src={require(`../assets/img/icons/${weatherIcon}.svg`)} alt="" className={classes.icon} />}
     </Grid>
     <Grid item >
-      <Typography variant="h2" style={{color:"grey",textDecoration:"underline",fontFamily:"Raleway",marginBottom:"0.6em"}}>
+      <Typography variant="h2" style={{color:"grey",textDecoration:"underline",fontFamily:"Raleway",marginBottom:"0.2em"}}>
         {cityName}
+      </Typography>
+      <Typography variant="h4" style={{color:"grey",textDecoration:"underline",fontFamily:"Raleway",marginBottom:"0.2em"}}>
+        {state}
+      </Typography>
+      <Typography variant="h4" style={{color:"grey",textDecoration:"underline",fontFamily:"Raleway",marginBottom:"0.6em"}}>
+        {country}
       </Typography>
       <Typography variant="h4" style={{color:"grey",marginBottom:"0.2em"}}>
         {weather}
@@ -86,7 +107,7 @@ let weatherDetails= (
       alignItems="center"
       align="center"
       className={classes.container}
-      style={{height:loaded ? "auto" :"50em" }}
+      style={{height:loaded ? "auto" :"52em" }}
     >
       <Grid item md>
         <Typography variant="h3" className={classes.title}>
@@ -104,17 +125,17 @@ let weatherDetails= (
             <TextField
               id="city"
               label="enter the city name"
-              // error={phoneHelper.length !== 0}
-              helperText={cityName}
+              error={textHelper.length !== 0}
+              helperText={textHelper}
               fullWidth
               value={citySearch}
               onChange={onChange}
-              className={classes.text}
+             inputProps={{classes:classes.text}}
             />
           </Grid>
           <Grid item>
           {loading ? <CircularProgress />:
-            <Button variant="contained" className={classes.Button} onClick={submitHandler} disabled={citySearch.length<=1}>
+            <Button variant="contained" className={classes.Button} onClick={submitHandler} disabled={!valid}>
               Submit 
           </Button> }
           </Grid>

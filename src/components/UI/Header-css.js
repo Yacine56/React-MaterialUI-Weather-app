@@ -1,14 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyle = makeStyles((theme) => ({
-  menuIcon: {
-    color: "white",
-    height: "3em",
-    width: "3em",
-   
-  },
+ 
   appbar: {
     height: "4em",
+    flexGrow: 1,
     backgroundColor: "#FBAB7E",
     backgroundImage: "linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%)",
    
@@ -20,23 +16,14 @@ export const useStyle = makeStyles((theme) => ({
       marginBottom: "2.5rem",
     },
   },
-  Menu: {
-    backgroundColor: "#FBAB7E",
-    backgroundImage: "linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%)",
-    color: "white",
-    fontSize: "1rem",
-    fontWeight: 600,
-    
-  },
-  drawer:{
-    marginTop:"4em",
-    backgroundColor: "#FBAB7E",
-    backgroundImage: "linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%)",
-  },
-  listText:{
-    color:"white",
-    fontFamily:"raleway"
-    ,fontWeight:500,
-    fontSize:"1.5rem"
+   
+  title:{
+    flexGrow: 1,
+    fontFamily:"Raleway",
+    fontSize:"3rem",
+    fontWeight:800,
+    margin:"0.5em 3em",
+    marginLeft:"5em",
+    color:"white"
   }
 }));
