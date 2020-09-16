@@ -22,7 +22,7 @@ const Header = () => {
         <AppBar position="fixed" className={classes.appbar}>
         
           <Toolbar disableGutters >
-          <Typography variant="h5" className={classes.title} >
+          <Typography variant="h4" className={classes.title} >
              The Weather App
            </Typography>
             

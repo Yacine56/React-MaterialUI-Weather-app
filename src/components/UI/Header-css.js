@@ -4,6 +4,7 @@ export const useStyle = makeStyles((theme) => ({
  
   appbar: {
     height: "4em",
+    paddingLeft:"3em",
     flexGrow: 1,
     backgroundColor: "#FBAB7E",
     backgroundImage: "linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%)",
