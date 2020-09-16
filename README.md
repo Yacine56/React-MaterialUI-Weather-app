@@ -1,12 +1,12 @@
-How to use :
+How to use :</br>
 1- download the project </br>
-2- unzip, open and run npm install 
-3- login to https://developer.accuweather.com/ or open a new account and get API key to use it for the app
-4- copy and past the api key in the .env file 
-5- run npm start
+2- unzip, open and run npm install </br> 
+3- login to https://developer.accuweather.com/ or open a new account and get API key to use it for the app </br>
+4- copy and past the api key in the .env file </br>
+5- run npm start </br>
 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).</br>
 
 ## Available Scripts
 
